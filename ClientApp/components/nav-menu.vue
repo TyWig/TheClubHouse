@@ -15,7 +15,7 @@
                 </b-nav-form>-->
                 <b-nav-item-dropdown right>
                     <template slot="button-content">
-                        <em>{{ user ? user.first + ' ' + user.last : 'Guest'}}</em>
+                        <em>{{ currentUser ? currentUser.name : 'Guest'}}</em>
                     </template>
                     <div v-if="isAuthenticated">
                         <b-dropdown-item :to="{path: 'profile'}">Profile</b-dropdown-item>
@@ -33,7 +33,7 @@
 
 <script>
 import { authenticatedRoutes } from '../routes'
-
+import { mapState } from 'vuex'
 import ApiService from '../store/api'
 
 export default {
@@ -41,9 +41,13 @@ export default {
         return {
             authenticatedRoutes,
             collapsed: true,
-            user: null,
-            isAuthenticated: false
         }
+    },
+    computed: {
+        ...mapState({
+            currentUser: state => state.user,
+            isAuthenticated: state => state.isAuthenticated
+        })
     },
     created() {
       ApiService.getValues();

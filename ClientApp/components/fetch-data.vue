@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="forecast in forecasts" >
+                <tr v-for="(forecast, index) in forecasts" :key="index">
                     <td>{{ forecast.dateFormatted }}</td>
                     <td>{{ forecast.temperatureC }}</td>
                     <td>{{ forecast.temperatureF }}</td>
@@ -37,9 +37,6 @@ export default {
         }
     },
 
-    methods: {
-    },
-
     async created() {
         // ES2017 async/await syntax via babel-plugin-transform-async-to-generator
         // TypeScript can also transpile async/await down to ES5
@@ -58,7 +55,10 @@ export default {
         //        this.forecasts = response.data
         //    })
         //    .catch((error) => console.log(error))*/
-    }
+    },
+
+    methods: {
+    },
 }
 </script>
 
