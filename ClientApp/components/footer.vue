@@ -1,9 +1,11 @@
 <template>
   <div>
-    <footer class="mt-4 mb-4">
-      <div class="container">
-        &#169; The Club House Event Center
-      </div>
+    <footer class="mt-5">
+      <b-navbar variant="primary" class="fixed-bottom">
+        <div class="container">
+          Tyler Wigington
+        </div>
+      </b-navbar>
     </footer>
   </div>
 </template>

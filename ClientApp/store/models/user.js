@@ -1,7 +1,5 @@
 export const User = {
   name: '',
-  age: 24,
-  claims: [
-    'SuperAdmin'
-  ]
+  age: 0,
+  claims: []
 }

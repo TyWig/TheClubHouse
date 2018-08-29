@@ -9,7 +9,8 @@
         <b-form-input id="usernameInput"
                       type="text"
                       v-model="username"
-                      requireds
+                      required
+                      autocomplete="username"
                       placeholder="Enter username">
         </b-form-input>
       </b-form-group>
@@ -20,6 +21,7 @@
                       type="password"
                       v-model="password"
                       required
+                      autocomplete="current-password"
                       placeholder="Enter password">
         </b-form-input>
       </b-form-group>

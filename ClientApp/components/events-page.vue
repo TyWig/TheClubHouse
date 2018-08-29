@@ -1,37 +1,47 @@
 <template>
     <div>
-      <full-calendar :config="config"></full-calendar>
+      <full-calendar :events="events" :config="calendarConfig" @day-click="dayClicked"></full-calendar>
+      <b-jumbotron header="Register For an Event">
+        <!-- <p>For more information visit website</p> -->
+        <!-- <b-btn variant="primary" href="#">More Info</b-btn> -->
+      </b-jumbotron>
     </div>
 </template>
 
 <script>
 import {mapActions, mapState} from 'vuex';
+import ApiService from '../store/api';
 
 export default {
   data() {
-      return {
+    return {
+      calendarConfig: {
+        themeSystem: 'bootstrap4',
+        defaultView: 'month',
+        header: {
+          left: 'prev,next, today',
+          center: 'title',
+          right: 'month'
+        },
+        eventClick: (event) => {
+          console.log(event);
+        }
       }
+    }
   },
   computed: {
     ...mapState({
-      currentUser: state => state.user,
-      config: state => state.calendarConfig
+      events: state => state.events
     })
   },
   created() {
-    const userReq = {
-      name: 'Tyler Wigington',
-      age: 69,
-      claims: [
-        'SuperAdmin',
-        'Admin',
-        'Developer'
-      ]
-    }
-    this.setUser({user: userReq})
+    this.getEvents();
   },
   methods: {
-    ...mapActions(['setUser']),
+    ...mapActions(['getEvents']),
+    dayClicked: (event) => {
+      console.log(event);
+    }
   }
 }
 </script>
