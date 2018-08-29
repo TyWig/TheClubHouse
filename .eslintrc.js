@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: [
     'html',
+    'vue'
   ],
   extends: [
     'standard',

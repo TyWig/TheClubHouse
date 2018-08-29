@@ -1,13 +1,11 @@
-import CounterExample from 'components/counter-example'
-import FetchData from 'components/fetch-data'
 import HomePage from 'components/home-page'
 import LoginComponent from 'components/login'
+import EventsPage from 'components/events-page'
 
 export const routes = [
   { path: '/', component: HomePage, display: 'Home', style: 'glyphicon glyphicon-home' },
   { path: '/login', component: LoginComponent, display: 'Login', style: 'glyphicon glyphicon-home' },
-  { path: '/counter', component: CounterExample, display: 'Counter', style: 'glyphicon glyphicon-education' },
-  { path: '/fetch-data', component: FetchData, display: 'Fetch data', style: 'glyphicon glyphicon-th-list' }
+  { path: '/events', component: EventsPage, display: 'Events', style: 'fa fa=' },
 ]
 
 export const authenticatedRoutes = [
